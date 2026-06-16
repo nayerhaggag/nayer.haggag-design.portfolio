@@ -1,62 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nayer Haggag | Engineering Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayer Haggag | Engineering Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 120px 20px 100px;
+            background: white;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: #6e6e73;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 25px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #515154;
+            font-size: 1.1rem;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 35px;
+        }
+
+        .project-content h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .project-content p {
+            color: #515154;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: #86868b;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            .project-card img {
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
+<header>
     <h1>Nayer Haggag</h1>
     <p>Student Engineer & Designer</p>
-  </header>
+</header>
 
-  <section class="about">
+<section class="about">
     <h2>About Me</h2>
-    <p>
-      Hi, I'm Nayer Haggag, a sophomore in high school with a strong interest
-      in engineering and design. I enjoy creating projects that combine
-      functionality, creativity, and problem-solving. This portfolio highlights
-      the projects I have designed and built as I continue developing my skills.
-    </p>
-  </section>
 
-  <section class="projects">
+    <p>
+        Hi, I'm Nayer Haggag, a sophomore in high school with a strong interest
+        in engineering and design. I enjoy creating projects that combine
+        creativity, functionality, and problem-solving. Through each project,
+        I continue to develop my technical skills and explore innovative ways
+        to solve real-world challenges.
+    </p>
+</section>
+
+<section>
     <h2>Projects</h2>
 
-    <div class="project-card">
-      <img src="whiteboard-organizer.jpg" alt="Magnetic Whiteboard Organizer">
-      <h3>Magnetic Whiteboard Organization Tool</h3>
-      <p>
-        A magnetic organizer designed to hold whiteboard markers and a microfiber
-        cloth, helping keep classroom supplies neat, accessible, and organized.
-      </p>
-    </div>
+    <div class="projects">
 
-    <div class="project-card">
-      <img src="solar-charger.jpg" alt="Solar-Powered Charger">
-      <h3>Solar-Powered Charger</h3>
-      <p>
-        A portable solar-powered charger that converts sunlight into usable power
-        for electronic devices.
-      </p>
-    </div>
+        <div class="project-card">
+            <img src="whiteboard-organizer.jpg" alt="Magnetic Whiteboard Organizer">
 
-    <div class="project-card">
-      <img src="solar-power-bank.jpg" alt="Solar-Powered Power Bank">
-      <h3>Solar-Powered Power Bank</h3>
-      <p>
-        A solar-powered power bank designed to store energy from a solar panel
-        for later use in a portable charging system.
-      </p>
-    </div>
-  </section>
+            <div class="project-content">
+                <h3>Magnetic Whiteboard Organization Tool</h3>
 
-  <footer>
-    <p>© 2026 Nayer Haggag</p>
-  </footer>
+                <p>
+                    Designed and built a magnetic organizer that securely holds
+                    whiteboard markers and a microfiber cloth, helping keep
+                    classroom supplies organized and easily accessible.
+                </p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="solar-charger.jpg" alt="Solar Charger">
+
+            <div class="project-content">
+                <h3>Solar-Powered Charger</h3>
+
+                <p>
+                    Developed a portable solar-powered charger capable of
+                    converting solar energy into usable power for electronic
+                    devices while exploring renewable energy applications.
+                </p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="solar-power-bank.jpg" alt="Solar Power Bank">
+
+            <div class="project-content">
+                <h3>Solar-Powered Power Bank</h3>
+
+                <p>
+                    Built a solar-powered power bank designed to store energy
+                    collected from a solar panel for later use, providing a
+                    portable and sustainable charging solution.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Nayer Haggag
+</footer>
 
 </body>
 </html>
