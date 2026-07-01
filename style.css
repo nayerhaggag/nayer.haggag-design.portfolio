@@ -71,9 +71,29 @@ nav {
 /* Hero (index page) */
 
 .hero {
+  position: relative;
+  overflow: hidden;
   text-align: center;
   padding: 130px 22px 110px;
   background: linear-gradient(135deg, #ffffff 0%, #eef5ff 60%, #eef2ff 100%);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("hero-banner.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.16;
+  z-index: 0;
+}
+
+.hero h1,
+.hero .subtitle,
+.hero-description {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
