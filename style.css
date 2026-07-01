@@ -131,10 +131,18 @@ h2 {
   margin-bottom: 38px;
 }
 
-.about p {
-  max-width: 820px;
-  margin: auto;
-  text-align: center;
+.about-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+}
+
+.about-col h2,
+.skills-col h2 {
+  text-align: left;
+}
+
+.about-col p {
   color: var(--text-secondary);
   font-size: 1.12rem;
 }
@@ -142,7 +150,6 @@ h2 {
 .project-buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 16px;
   margin-top: 38px;
 }
@@ -280,7 +287,6 @@ h2 {
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 14px;
 }
 
@@ -329,6 +335,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .about-skills-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
   nav {
     padding: 14px 20px;
   }
