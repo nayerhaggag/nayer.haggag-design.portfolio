@@ -173,7 +173,13 @@ h2 {
 .about-skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 70px;
+  gap: 60px;
+  align-items: start;
+}
+
+.skills-col {
+  padding-left: 40px;
+  border-left: 1px solid var(--border);
 }
 
 .about-col h2,
@@ -291,6 +297,41 @@ h2 {
   background: white;
   padding: 20px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.015);
+}
+
+/* Lightbox */
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+  cursor: zoom-out;
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-overlay img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .case-study {
@@ -377,6 +418,11 @@ footer {
   .about-skills-grid {
     grid-template-columns: 1fr;
     gap: 60px;
+  }
+
+  .skills-col {
+    padding-left: 0;
+    border-left: none;
   }
 
   nav {
