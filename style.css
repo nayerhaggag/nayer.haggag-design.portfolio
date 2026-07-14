@@ -138,6 +138,23 @@ nav {
   margin: 24px 0 14px;
 }
 
+.live-link {
+  display: inline-block;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  color: white;
+  background: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 11px 20px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.live-link:hover {
+  background: var(--accent-dark);
+}
+
 /* Sections */
 
 section {
