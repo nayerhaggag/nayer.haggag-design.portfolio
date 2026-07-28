@@ -98,14 +98,14 @@ nav {
 }
 
 .hero h1 {
-  font-size: 4.5rem;
+  font-size: clamp(2.1rem, 9vw, 4.5rem);
   font-weight: 700;
   letter-spacing: -2.5px;
   margin-bottom: 10px;
 }
 
 .hero .subtitle {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3.2vw, 1.5rem);
   color: var(--accent);
   margin-bottom: 22px;
   font-weight: 500;
@@ -133,7 +133,7 @@ nav {
 }
 
 .page-header h1 {
-  font-size: 3.2rem;
+  font-size: clamp(1.75rem, 6.5vw, 3.2rem);
   letter-spacing: -1.5px;
   margin: 24px 0 14px;
 }
@@ -165,7 +165,7 @@ section {
 
 h2 {
   text-align: center;
-  font-size: 2.6rem;
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
   letter-spacing: -1px;
   margin-bottom: 38px;
 }
@@ -332,6 +332,55 @@ h2 {
   max-height: 100%;
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  cursor: zoom-out;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 1001;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+@media (max-width: 480px) {
+  .lightbox-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 1.6rem;
+  }
+
+  .lightbox-prev {
+    left: 8px;
+  }
+
+  .lightbox-next {
+    right: 8px;
+  }
 }
 
 .case-study {
@@ -346,7 +395,7 @@ h2 {
 
 .case-section h2 {
   text-align: left;
-  font-size: 1.8rem;
+  font-size: clamp(1.35rem, 3.2vw, 1.8rem);
   margin-bottom: 16px;
 }
 
@@ -438,12 +487,7 @@ footer {
   }
 
   .hero h1 {
-    font-size: 3rem;
     letter-spacing: -1.5px;
-  }
-
-  .hero .subtitle {
-    font-size: 1.25rem;
   }
 
   .page-header {
@@ -451,12 +495,7 @@ footer {
   }
 
   .page-header h1 {
-    font-size: 2.3rem;
     letter-spacing: -1px;
-  }
-
-  h2 {
-    font-size: 2.1rem;
   }
 
   section {
@@ -495,24 +534,7 @@ footer {
   }
 
   .hero h1 {
-    font-size: 2.4rem;
     letter-spacing: -1px;
-  }
-
-  .hero .subtitle {
-    font-size: 1.05rem;
-  }
-
-  .page-header h1 {
-    font-size: 1.9rem;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-  }
-
-  .case-section h2 {
-    font-size: 1.5rem;
   }
 
   .project-button,
