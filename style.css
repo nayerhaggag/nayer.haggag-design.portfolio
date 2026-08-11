@@ -2,6 +2,7 @@
   --accent: #2563eb;
   --accent-dark: #1d4ed8;
   --accent-tint: #eaf2ff;
+  --accent-glow: #818cf8;
   --bg: #f5f7fb;
   --text: #1d1d1f;
   --text-secondary: #515154;
@@ -32,15 +33,21 @@ a {
   color: inherit;
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 /* Nav */
 
 nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border);
   padding: 16px 32px;
   display: flex;
@@ -60,13 +67,30 @@ nav {
 }
 
 .nav-links a {
+  position: relative;
   font-size: 0.95rem;
   font-weight: 500;
+  padding-bottom: 3px;
   transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transition: right 0.25s ease;
 }
 
 .nav-links a:hover {
   color: var(--accent);
+}
+
+.nav-links a:hover::after {
+  right: 0;
 }
 
 /* Hero (index page) */
@@ -86,7 +110,18 @@ nav {
   background-image: url("hero-banner.jpg");
   background-size: cover;
   background-position: center;
-  opacity: 0.16;
+  opacity: 0.14;
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 55% 50% at 15% 10%, color-mix(in srgb, var(--accent) 30%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 45% at 88% 22%, color-mix(in srgb, var(--accent-glow) 32%, transparent) 0%, transparent 70%);
+  mix-blend-mode: multiply;
   z-index: 0;
 }
 
@@ -208,7 +243,7 @@ h2 {
   font-size: 0.95rem;
   font-weight: 500;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  transition: all 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
 }
 
 .project-button:hover {
@@ -230,8 +265,9 @@ h2 {
   background: white;
   border-radius: 30px;
   overflow: hidden;
+  border: 1px solid transparent;
   box-shadow: 0 20px 55px rgba(15, 23, 42, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -239,6 +275,7 @@ h2 {
 
 .project-card:hover {
   transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 25%, transparent);
   box-shadow: 0 28px 70px rgba(15, 23, 42, 0.12);
 }
 
@@ -436,9 +473,15 @@ h2 {
 .contact {
   text-align: center;
   background: white;
+  border: 1px solid var(--border);
   border-radius: 34px;
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
   margin-bottom: 40px;
+}
+
+.contact a {
+  display: inline-block;
+  transition: color 0.2s ease;
 }
 
 .contact p {
@@ -541,5 +584,42 @@ footer {
   .skill-pill {
     font-size: 0.88rem;
     padding: 10px 16px;
+  }
+}
+
+/* Scroll reveal */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+.projects .reveal:nth-child(2) { transition-delay: 0.05s; }
+.projects .reveal:nth-child(3) { transition-delay: 0.1s; }
+.projects .reveal:nth-child(4) { transition-delay: 0.15s; }
+.projects .reveal:nth-child(5) { transition-delay: 0.2s; }
+.projects .reveal:nth-child(6) { transition-delay: 0.25s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .project-card:hover,
+  .project-button:hover,
+  .gallery img:hover {
+    transform: none;
   }
 }
